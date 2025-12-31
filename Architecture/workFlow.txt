@@ -1,0 +1,65 @@
+I built an AI-powered resume analyzer that compares resumes with job descriptions using NLP, generates match scores, 
+and recommends ATS-friendly keywords.”
+
+
+I implemented a resume analyzer where resumes are parsed and cleaned using NLP, converted into TF-IDF vectors, 
+compared with job descriptions using cosine similarity, and enhanced with a keyword recommendation system for ATS optimization.”
+
+
+USER (Browser)
+     |
+     |  Upload Resume + Paste Job Description
+     v
+FRONTEND (React / HTML-CSS-JS)
+     |
+     |  API Request (Resume + JD)
+     v
+BACKEND SERVER (Flask / FastAPI)
+     |
+     |-----------------------------|
+     |                             |
+     v                             v
+RESUME PARSER                JD PROCESSOR
+(PDF/DOCX → Text)          (Clean & Normalize)
+     |                             |
+     |                             |
+     v                             v
+TEXT PREPROCESSING (NLP Cleaning)
+     |
+     v
+FEATURE EXTRACTION
+(TF-IDF / Keywords)
+     |
+     |-----------------------------|
+     |                             |
+     v                             v
+SIMILARITY ENGINE          KEYWORD SELECTOR
+(Match % Score)            (Missing Keywords)
+     |
+     |-----------------------------|
+     |
+     v
+RESULT GENERATOR
+(Match %, Skills, Suggestions)
+     |
+     v
+RESPONSE (JSON)
+     |
+     v
+FRONTEND UI (Charts, Score, Keywords)
+
+
+
+Resume Upload
+   ↓
+Text Extraction
+   ↓
+Text Cleaning (NLP)
+   ↓
+TF-IDF Vectorization
+   ↓
+Cosine Similarity
+   ↓
+Keyword Comparison
+   ↓
+JSON Response

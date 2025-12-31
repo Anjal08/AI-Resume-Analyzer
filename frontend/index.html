@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Resume Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>AI Resume Analyzer</h1>
+    <p class="subtitle">Check how well your resume matches a job description</p>
+
+    <form id="resumeForm">
+        <div class="form-group">
+            <label>Upload Resume (PDF / DOCX)</label>
+            <input type="file" id="resume" required>
+        </div>
+
+        <div class="form-group">
+            <label>Job Description</label>
+            <textarea id="jobDesc" rows="6" placeholder="Paste job description here..." required></textarea>
+        </div>
+
+        <button type="submit">Analyze Resume</button>
+    </form>
+
+    <div id="result" class="hidden">
+        <h3>Analysis Result</h3>
+        <p><strong>Match Score:</strong> <span id="score"></span></p>
+        <p><strong>Missing Keywords:</strong></p>
+        <ul id="keywords"></ul>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

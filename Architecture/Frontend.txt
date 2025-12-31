@@ -1,0 +1,191 @@
+1️⃣ Frontend Layer (User Interface)
+
+Responsibilities:
+
+Resume upload (PDF / DOCX)
+
+Job description input box
+
+Show results:
+
+Match percentage
+
+Matched & missing keywords
+
+Suggestions
+
+Tech Stack:
+
+React.js
+
+Tailwind / CSS
+
+Axios / Fetch API
+
+📌 Frontend does NOT process resume — it only sends data.
+
+2️⃣ Backend API Layer
+
+Responsibilities:
+
+Accept resume file
+
+Accept JD text
+
+Coordinate NLP processing
+
+Return final result
+
+Tech Stack:
+
+Python Flask / FastAPI
+
+REST API endpoints
+
+Main API Endpoint:
+
+POST /analyze-resume   
+
+
+ 3. Resume Parser Module
+
+Input: PDF / DOCX
+Output: Plain text
+
+Libraries:
+
+PDF → pdfplumber / PyMuPDF
+
+DOCX → python-docx
+
+📌 Converts resume into raw readable text
+
+4️⃣ Job Description Processor
+
+Input: JD text
+Process:
+
+Lowercase
+
+Remove punctuation
+
+Remove stopwords
+
+Lemmatization
+
+Tools:
+
+NLTK
+
+spaCy
+
+5️⃣ Text Preprocessing (Common NLP Step)
+
+Applied to both Resume & JD:
+
+Remove special characters
+
+Tokenization
+
+Stopword removal
+
+Lemmatization
+
+📌 This makes text machine-understandable
+
+6️⃣ Feature Extraction Engine
+
+This is where AI logic starts 🧠
+
+Technique:
+
+TF-IDF Vectorization
+
+Why TF-IDF?
+
+Simple
+
+ATS-like behavior
+
+Beginner friendly
+
+Interview safe
+
+Output: 
+
+
+7️⃣ Similarity Engine (MATCH SCORE)
+
+Algorithm:
+
+Cosine Similarity
+
+Output:
+
+Match Score = 0.78 → 78%
+
+
+📌 This is your Resume–JD match percentage
+
+
+8️⃣ Keyword Selector (⭐ PLUS FEATURE)
+
+Steps:
+
+Extract important keywords from JD
+
+Compare with resume keywords
+
+Identify:
+
+Present keywords
+
+Missing keywords
+
+Techniques:
+
+TF-IDF ranking
+
+Keyword frequency
+
+Skill dictionary (optional)
+
+Output Example:
+
+Missing Keywords:
+- REST API
+- MongoDB
+- AWS
+
+
+9️⃣ Result Generator
+
+Creates final structured output:
+
+{
+  "match_score": 78,
+  "matched_skills": ["JavaScript", "React"],
+  "missing_skills": ["Node.js", "MongoDB"],
+  "keyword_suggestions": ["AWS", "REST API"]
+}
+🔟 Frontend Visualization
+
+Display using:
+
+Progress bar (match %)
+
+Skill tags
+
+Keyword cards
+
+Improvement tips
+
+📊 This makes your project professional & interview-ready
+
+
+“The system parses resumes, preprocesses text using NLP, calculates similarity with job descriptions using TF-IDF and 
+cosine similarity, and recommends ATS-friendly keywords.”
+
+🔥 This is GOLD
+
+(Python, Flask, NLP, TF-IDF, Cosine Similarity, REST APIs)

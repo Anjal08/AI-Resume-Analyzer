@@ -1,0 +1,97 @@
+🌐 FRONTEND (What you’ll use)
+Tech to use
+
+HTML
+
+CSS
+
+JavaScript
+(React is optional – not required now)
+
+What frontend will do
+
+Upload resume file (PDF / DOCX)
+
+Text box for Job Description
+
+Submit button
+
+Show results:
+
+Match percentage
+
+Missing keywords
+
+Matched skills
+
+Files (simple)
+frontend/
+├── index.html
+├── style.css
+└── script.js
+
+
+👉 Frontend only sends data, no AI logic.
+
+⚙️ BACKEND (What you’ll use)
+Tech to use
+
+Python
+
+Flask
+
+REST APIs
+
+Backend responsibilities
+
+Accept resume file
+
+Accept job description text
+
+Extract resume text
+
+Clean text (NLP)
+
+Call AI logic
+
+Return JSON result
+
+Backend structure
+backend/
+├── app.py
+├── resume_parser.py
+├── preprocess.py
+├── similarity.py
+├── keyword_extractor.py
+└── uploads/
+
+🧠 AI / NLP PART (What you’ll use)
+Libraries
+
+NLTK
+
+spaCy
+
+scikit-learn
+
+AI logic used
+
+Resume parsing (PDF/DOCX)
+
+Text preprocessing
+
+TF-IDF
+
+Cosine Similarity
+
+Keyword extraction
+
+Missing keyword detection
+
+NO deep learning
+
+❌ No TensorFlow
+❌ No PyTorch
+❌ No BERT
+
+✔ Simple, explainable, ATS-style logic
