@@ -87,9 +87,6 @@ npm run dev
 ---
 
 ## 📸 AI Analysis Pipeline
-
-```mermaid
-graph LR
     A[Upload Resume] --> B(PDF Parsing)
     B --> C{AI Pass 1: Core Logic}
     C -->|Weighted Keywords| D(Skill Gap Map)
@@ -97,7 +94,6 @@ graph LR
     E --> F(Quantified Rewrites)
     F --> G[Strategic Roadmap]
     G --> H[Interview Roleplay]
-```
 
 ---
 
