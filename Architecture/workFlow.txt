@@ -1,65 +1,30 @@
-I built an AI-powered resume analyzer that compares resumes with job descriptions using NLP, generates match scores, 
-and recommends ATS-friendly keywords.”
+PROJECT WORKFLOW & PIPELINE - RESUMIND
+======================================
 
+1. USER ONBOARDING:
+   - User signs up via traditional Email/Password (BCrypt hashing) or Google OAuth.
+   - Backend generates a JWT token stored in the client-side (local storage/cookies).
 
-I implemented a resume analyzer where resumes are parsed and cleaned using NLP, converted into TF-IDF vectors, 
-compared with job descriptions using cosine similarity, and enhanced with a keyword recommendation system for ATS optimization.”
+2. THE RESUME ANALYSIS PIPELINE:
+   - STEP 1 (Input): User pastes a Job Description (JD) and uploads a PDF Resume.
+   - STEP 2 (Streaming): Client requests analysis via POST. Backend kicks off SSE stream.
+   - STEP 3 (Extraction): `pdf-parse` extracts text -> Backend cleans the string.
+   - STEP 4 (Pass 1): AI analyzes Weighted Match Score, Content Breakdown (Tone/Structure/Content), and initial Keyword extraction.
+   - STEP 5 (Pass 2): AI performs a "Recall & Refine" step to generate the "So What?" rewrites and a "Strategic Roadmap."
+   - STEP 6 (Storage): Result is saved to MongoDB linked to the User ID.
+   - STEP 7 (Delivery): Final JSON is sent to the Frontend.
 
+3. THE AI INTERVIEW ROLEPLAY:
+   - User selects a past application.
+   - Chat interface loads the Resume + JD context.
+   - AI persona ("Lead FAANG Recruiter") starts a deep-dive conversation based on the candidate's specific skills.
+   - Chat history is saved in the database for continuity.
 
-USER (Browser)
-     |
-     |  Upload Resume + Paste Job Description
-     v
-FRONTEND (React / HTML-CSS-JS)
-     |
-     |  API Request (Resume + JD)
-     v
-BACKEND SERVER (Flask / FastAPI)
-     |
-     |-----------------------------|
-     |                             |
-     v                             v
-RESUME PARSER                JD PROCESSOR
-(PDF/DOCX → Text)          (Clean & Normalize)
-     |                             |
-     |                             |
-     v                             v
-TEXT PREPROCESSING (NLP Cleaning)
-     |
-     v
-FEATURE EXTRACTION
-(TF-IDF / Keywords)
-     |
-     |-----------------------------|
-     |                             |
-     v                             v
-SIMILARITY ENGINE          KEYWORD SELECTOR
-(Match % Score)            (Missing Keywords)
-     |
-     |-----------------------------|
-     |
-     v
-RESULT GENERATOR
-(Match %, Skills, Suggestions)
-     |
-     v
-RESPONSE (JSON)
-     |
-     v
-FRONTEND UI (Charts, Score, Keywords)
+4. EXPORT & OUTPUT:
+   - Backend generates an "Optimized Resume" version in Markdown.
+   - Frontend renders the success metrics using Recharts for visual feedback.
 
-
-
-Resume Upload
-   ↓
-Text Extraction
-   ↓
-Text Cleaning (NLP)
-   ↓
-TF-IDF Vectorization
-   ↓
-Cosine Similarity
-   ↓
-Keyword Comparison
-   ↓
-JSON Response
+5. INTERVIEW TALKING POINTS:
+   - "The entire workflow is built to be asynchronous, meaning the user never sees a 'frozen' screen; they get live progress updates."
+   - "By saving the analysis in MongoDB, I allow users to track their career growth over time across different job applications."
+   - "This project demonstrates full-stack proficiency: from secure authentication to complex AI prompt engineering and real-time data streaming."

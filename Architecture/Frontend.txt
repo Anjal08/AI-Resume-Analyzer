@@ -1,191 +1,31 @@
-1️⃣ Frontend Layer (User Interface)
-
-Responsibilities:
-
-Resume upload (PDF / DOCX)
-
-Job description input box
-
-Show results:
-
-Match percentage
-
-Matched & missing keywords
-
-Suggestions
-
-Tech Stack:
-
-React.js
-
-Tailwind / CSS
-
-Axios / Fetch API
-
-📌 Frontend does NOT process resume — it only sends data.
-
-2️⃣ Backend API Layer
-
-Responsibilities:
-
-Accept resume file
-
-Accept JD text
-
-Coordinate NLP processing
-
-Return final result
-
-Tech Stack:
-
-Python Flask / FastAPI
-
-REST API endpoints
-
-Main API Endpoint:
-
-POST /analyze-resume   
-
-
- 3. Resume Parser Module
-
-Input: PDF / DOCX
-Output: Plain text
-
-Libraries:
-
-PDF → pdfplumber / PyMuPDF
-
-DOCX → python-docx
-
-📌 Converts resume into raw readable text
-
-4️⃣ Job Description Processor
-
-Input: JD text
-Process:
-
-Lowercase
-
-Remove punctuation
-
-Remove stopwords
-
-Lemmatization
-
-Tools:
-
-NLTK
-
-spaCy
-
-5️⃣ Text Preprocessing (Common NLP Step)
-
-Applied to both Resume & JD:
-
-Remove special characters
-
-Tokenization
-
-Stopword removal
-
-Lemmatization
-
-📌 This makes text machine-understandable
-
-6️⃣ Feature Extraction Engine
-
-This is where AI logic starts 🧠
-
-Technique:
-
-TF-IDF Vectorization
-
-Why TF-IDF?
-
-Simple
-
-ATS-like behavior
-
-Beginner friendly
-
-Interview safe
-
-Output: 
-
-
-7️⃣ Similarity Engine (MATCH SCORE)
-
-Algorithm:
-
-Cosine Similarity
-
-Output:
-
-Match Score = 0.78 → 78%
-
-
-📌 This is your Resume–JD match percentage
-
-
-8️⃣ Keyword Selector (⭐ PLUS FEATURE)
-
-Steps:
-
-Extract important keywords from JD
-
-Compare with resume keywords
-
-Identify:
-
-Present keywords
-
-Missing keywords
-
-Techniques:
-
-TF-IDF ranking
-
-Keyword frequency
-
-Skill dictionary (optional)
-
-Output Example:
-
-Missing Keywords:
-- REST API
-- MongoDB
-- AWS
-
-
-9️⃣ Result Generator
-
-Creates final structured output:
-
-{
-  "match_score": 78,
-  "matched_skills": ["JavaScript", "React"],
-  "missing_skills": ["Node.js", "MongoDB"],
-  "keyword_suggestions": ["AWS", "REST API"]
-}
-🔟 Frontend Visualization
-
-Display using:
-
-Progress bar (match %)
-
-Skill tags
-
-Keyword cards
-
-Improvement tips
-
-📊 This makes your project professional & interview-ready
-
-
-“The system parses resumes, preprocesses text using NLP, calculates similarity with job descriptions using TF-IDF and 
-cosine similarity, and recommends ATS-friendly keywords.”
-
-🔥 This is GOLD
-
-(Python, Flask, NLP, TF-IDF, Cosine Similarity, REST APIs)
+FRONTEND ARCHITECTURE - RESUMIND (AI RESUME ANALYSER)
+======================================================
+
+1. TECH STACK:
+   - Framework: Next.js 14 (App Router)
+   - Styling: Tailwind CSS (Utility-first CSS)
+   - Animations: Framer Motion (For smooth transitions and dashboard "wow" factor)
+   - Icons: Lucide React
+   - Charts: Recharts (For visualizing match scores and skill gaps)
+   - API Communication: Axios (With interceptors for JWT handling)
+
+2. CORE COMPONENTS & STRUCTURE:
+   - App Router Architecture:
+     - layout.js: Defines the global design (Navbar, Theme, Sidebar).
+     - page.js: The landing page with features and CTA.
+     - dashboard/: Protected route showing user application history.
+     - analyze/: The core interface where users upload resumes and view live analysis.
+   - State Management: 
+     - Leverages React "useState" and "useEffect" for local interaction.
+     - Uses Next.js "Context" or custom hooks for global User Auth state.
+
+3. KEY FEATURES & LOGIC:
+   - File Upload System: Uses traditional HTML input with Axios "FormData" to stream the PDF to the backend.
+   - SSE (Server-Sent Events) Handling: Implements a listener to receive real-time updates from the backend (e.g., "Parsing PDF...", "Analyzing Skills...") to provide a "live" feel.
+   - Responsive Dashboard: Built with a mobile-first approach using Tailwind's grid/flex system.
+   - Dynamic Results: Renders complex JSON structures from the AI into clean, readable cards, progress bars, and charts.
+
+4. INTERVIEW TALKING POINTS:
+   - "I chose Next.js 14 for its optimized routing and performance, ensuring a professional, premium user experience."
+   - "I used Framer Motion to create micro-animations that make the platform feel like a modern, enterprise-grade AI dashboard."
+   - "The frontend communicates with the Node.js backend using structured API calls, handling JWT tokens securely for user sessions."
